@@ -1,0 +1,2 @@
+# Example geckodriver_file_path : /usr/local/bin/geckodriver
+geckodriver_path = 'Enter-your-geckodriver-file-path-here'

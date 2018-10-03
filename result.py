@@ -12,14 +12,16 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait 
 
-browser = webdriver.Firefox(executable_path='/usr/local/bin/geckodriver')
+# Importing local .py files
+import config # File which contains path_to_executable_file_geckodriver
+
+browser = webdriver.Firefox(executable_path=config.geckodriver_path)
 
 # url's of pages
 login_url    = 'http://misnew.nitt.edu/NITTSTUDENT/'
 services_url = login_url+'servicesReqPage'
 
 # Id's of elements
-
 # elements in url : http://misnew.nitt.edu/NITTSTUDENT/
 usernameElementId = 'userId'
 passwordElementId = 'password'
