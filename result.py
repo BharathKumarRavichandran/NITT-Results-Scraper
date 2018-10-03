@@ -34,7 +34,7 @@ selectElementId   = 'sessionId'
 resultBtnXPath  = '//*[@id="RightCommonColum"]/div/table/tbody/tr[2]/td/table/tbody/tr/td/input'
 cgpaElementId     = 'cgpa'
 
-selectIndex = 1
+selectIndex = 12
 
 try :
     browser.get(login_url)
@@ -71,16 +71,23 @@ try:
 
     browser.find_element_by_id(resultsNavLink).click()
     print "Retrieving results ...."
-    time.sleep(1)
 
-    # selecting option in select
     selectElement = Select(browser.find_element_by_id(selectElementId))
-    selectElement.select_by_index(selectIndex)
-
-    # Clicking 'Show results' button to display results
     resultButton = browser.find_element_by_xpath(resultBtnXPath)
-    resultButton.click()
-    time.sleep(2)
+    exists = 0
+
+    while((not exists) and (selectIndex > 0)):
+        # selecting option in select
+        selectElement.select_by_index(selectIndex)
+
+        # Clicking 'Show results' button to display results
+        resultButton.click()
+        time.sleep(2)
+
+        if(len(browser.find_elements_by_id(cgpaElementId))>0):
+            exists = 1
+        else:
+            selectIndex-= 1
 
     # Scraping value of CGPA from the cgpa input_element
     cgpaElement = browser.find_element_by_id(cgpaElementId)

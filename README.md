@@ -4,7 +4,7 @@
 
 NITT-Result-Scraper is a simple python tool to check any student CGPA with their Octa credentials.
 
-## Requirements
+### Requirements
 * The user should be connected to NITT Wifi (HP) for this application to work.
 
 ## Technologies used
