@@ -1,16 +1,21 @@
-# NITT-Result-Scraper
+# NITT-Results-Scraper
 
-[![PRs Welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg)](http://makeapullrequest.com) [![made-with-python](https://img.shields.io/badge/made%20with-python-blue.svg)](https://www.python.org/) [![License](https://img.shields.io/badge/license-BSD--3--Clause-green.svg)](LICENSE)
+[![PRs Welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg)](http://makeapullrequest.com) [![made-with-python](https://img.shields.io/badge/made%20with-python-blue.svg)](https://www.python.org/) [![License](https://img.shields.io/badge/license-BSD-green.svg)](LICENSE)
 
-NITT-Result-Scraper is a simple python tool to check any student CGPA with their Octa credentials.
+NITT-Results-Scraper is a simple python tool to check any student CGPA with their Octa credentials.
 
 ### Installation
+##### Build from source
 * ```
-    $ git clone https://github.com/BharathKumarRavichandran/NITT-Result-Scraper.git
+    $ git clone https://github.com/BharathKumarRavichandran/NITT-Results-Scraper.git
   ```
 * ```
-    $ cd NITT-Result-Scraper
+    $ cd NITT-Results-Scraper
   ```
+*   Install required packages :
+    ```
+        $ python setup.py install
+    ```
 * Setting geckodriver :
     * Go to `https://github.com/mozilla/geckodriver/releases`
     * Download appropriate geckodriver file for your environment.
@@ -30,7 +35,7 @@ NITT-Result-Scraper is a simple python tool to check any student CGPA with their
         * Replace `Enter-your-geckodriver-file-path-here` with your geckodriver file path in `config.py`.
 
 ### Requirements
-* This application needs Firefox.
+* The application needs Firefox.
 * The user should be connected to NITT Wifi (HP) for this application to work.
 
 ## Technologies used
