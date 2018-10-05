@@ -2,7 +2,7 @@
 
 [![PRs Welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg)](http://makeapullrequest.com) [![made-with-python](https://img.shields.io/badge/made%20with-python-blue.svg)](https://www.python.org/) [![License](https://img.shields.io/badge/license-BSD-green.svg)](LICENSE)
 
-NITT-Results-Scraper is a simple python tool to check any student CGPA with their Octa credentials.
+NITT-Results-Scraper is a simple python tool to check any student CGPA and semester GPAs with their Octa credentials.
 
 ### Installation
 ##### Build from source
@@ -23,13 +23,13 @@ NITT-Results-Scraper is a simple python tool to check any student CGPA with thei
     * Copy the executable file and paste it in suitable folder :
         * Example directory `/usr/local/bin` for ubuntu.
     * Give executable file permission for the pasted file named 'geckodriver' : 
-    ```
-        $ sudo chmod +x /usr/local/bin/geckodriver
-    ```
+        ```
+            $ sudo chmod +x /usr/local/bin/geckodriver
+        ```
     * Setting environment variable : 
-    ```
-        $ export PATH = $PATH:/usr/local/bin/geckodriver
-    ```
+        ```
+            $ export PATH = $PATH:/usr/local/bin/geckodriver
+        ```
     * Create a file named : `config.py`.
     * Copy the contents of `config.py.example` to `config.py`.
         * Replace `Enter-your-geckodriver-file-path-here` with your geckodriver file path in `config.py`.
@@ -37,6 +37,14 @@ NITT-Results-Scraper is a simple python tool to check any student CGPA with thei
 ### Requirements
 * The application needs Firefox.
 * The user should be connected to NITT Wifi (HP) for this application to work.
+
+### How to use
+* Open `Terminal`
+* Go to `NITT-Results-Scraper` directory.
+* Run `result.py` :
+    ```
+        $ python result.py
+    ```
 
 ## Technologies used
 * [Python](https://www.python.org/) 
