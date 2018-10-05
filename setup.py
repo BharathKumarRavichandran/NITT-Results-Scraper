@@ -12,7 +12,7 @@ with open('requirements.txt', 'r') as f:
 setup(
    name='NITT-Results-Scraper',
    version='1.0.0',
-   description='Simple python tool to check any NITT student CGPA with their Octa credentials.',
+   description="Simple python tool to check any student's CGPA and semester GPAs with their Octa credentials.",
    long_description=long_description,
    author='Bharath Kumar R',
    author_email='bharathkumarravichandran@gmail.com',
