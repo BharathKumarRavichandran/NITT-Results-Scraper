@@ -1,4 +1,4 @@
-#! python2
+#! python3
 # python script which scrapes any student's NITT result from http://misnew.nitt.edu/NITTSTUDENT/
 
 import os
@@ -32,11 +32,14 @@ loginFormId       = 'userLogin'
 resultsNavLink    = 'ExamResults'
 
 # elements in url : http://misnew.nitt.edu/NITTSTUDENT/resultPublish
-selectElementId   = 'sessionId'
+selectElementId = 'sessionId'
 resultBtnXPath  = '//*[@id="RightCommonColum"]/div/table/tbody/tr[2]/td/table/tbody/tr/td/input'
-cgpaElementId     = 'cgpa'
+gpaElementId    = 'gpa'
+cgpaElementId   = 'cgpa'
 
-selectIndex = 12
+selectIndex = 1
+gpa         = list()
+cgpa        = 'NA'
 
 try :
     browser.get(login_url)
@@ -72,28 +75,36 @@ try:
     time.sleep(1)
 
     browser.find_element_by_id(resultsNavLink).click()
-    print "Retrieving results ...."
+    print 'Retrieving results ....'
+    time.sleep(1)
 
     selectElement = Select(browser.find_element_by_id(selectElementId))
     resultButton = browser.find_element_by_xpath(resultBtnXPath)
-    exists = 0
+    print('Roll Number : '+str(username))
+    exists = 1
 
-    while((not exists) and (selectIndex > 0)):
+    while((exists) and (selectIndex <= 12)):
         # selecting option in select
         selectElement.select_by_index(selectIndex)
 
         # Clicking 'Show results' button to display results
         resultButton.click()
-        time.sleep(2)
+        time.sleep(3)
 
-        if(len(browser.find_elements_by_id(cgpaElementId))>0):
-            exists = 1
+        if(len(browser.find_elements_by_id(gpaElementId))>0):
+
+            gpaElement = browser.find_element_by_id(gpaElementId)
+            gpa.append(float(gpaElement.get_attribute('value')))
+            print 'Sem '+str(len(gpa))+' GPA : '+str(gpa[((len(gpa))-1)])
+
+            # Scraping value of CGPA in that sem from the cgpa input_element
+            cgpaElement = browser.find_element_by_id(cgpaElementId)
+            cgpa        = cgpaElement.get_attribute('value')
+            selectIndex += 1
+            
         else:
-            selectIndex-= 1
-
-    # Scraping value of CGPA from the cgpa input_element
-    cgpaElement = browser.find_element_by_id(cgpaElementId)
-    cgpa = cgpaElement.get_attribute('value')
+            exists = 0
+ 
     print 'CGPA : '+ cgpa
 
 except Exception as err: 
