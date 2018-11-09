@@ -1,6 +1,6 @@
-geckodriver.log
 dist/
 build/
+*.log
 *.pyc
 *.egg-info
 *.egg
